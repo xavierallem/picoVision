@@ -4,19 +4,14 @@
 
 TTSService::TTSService(NetworkManager& nm) : networkManager(nm) {}
 
-AudioBuffer TTSService::synthesizeSpeech(const String& text) {
-    Serial.println("Sending text to OpenAI for speech synthesis...");
-
-    String url = "https://api.openai.com/v1/audio/speech";
-    
-    JsonDocument doc;
-    doc["model"] = OPENAI_TTS_MODEL;
-    doc["input"] = text;
-    doc["voice"] = OPENAI_TTS_VOICE;
-
-    String requestBody;
-    serializeJson(doc, requestBody);
-
-    return networkManager.postForBinary(url, OPENAI_API_KEY, requestBody);
+void TTSService::setProvider(std::unique_ptr<BaseTTSProvider> provider) {
+    ttsProvider = std::move(provider);
 }
 
+AudioBuffer TTSService::synthesize(const ProviderConfig& config, const String& text) {
+    if (!ttsProvider) {
+        Serial.println("ERROR: TTS provider not set!");
+        return {nullptr, 0};
+    }
+    return ttsProvider->synthesize(networkManager, config, text);
+}

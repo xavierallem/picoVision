@@ -28,7 +28,7 @@ void handle_interaction() {
 #ifdef PICOVISION_HAS_DISPLAY
   sdk.displayManager.showMessage("Transcribing Audio...");
 #endif
-  String question = sdk.sttService.transcribe(recordedAudio);
+  String question = sdk.sttService.transcribe(sdk.sdk_config.stt_provider, recordedAudio);
   sdk.audioManager.releaseAudio(recordedAudio);
   
   Serial.printf("Transcription: \"%s\"\n", question.c_str());
@@ -69,7 +69,7 @@ void handle_interaction() {
     sdk.displayManager.showMessage("Synthesizing Speech...");
 #endif
     Serial.println("Synthesizing response to audio...");
-    AudioBuffer speech = sdk.ttsService.synthesize(description);
+    AudioBuffer speech = sdk.ttsService.synthesize(sdk.sdk_config.tts_provider, description);
 #ifdef PICOVISION_HAS_DISPLAY
     sdk.displayManager.showMessage("Playing Response...");
 #endif

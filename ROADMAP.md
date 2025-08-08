@@ -19,7 +19,7 @@ This document outlines the planned features and improvements for the PicoVision 
 - [x] **Text-to-Speech (TTS) Service:** Create a service to fetch audio data from the OpenAI TTS API.
 
 ## Phase 4: SDK Refactoring & Robustness (✅ Completed)
-- [x] **Provider Abstraction:** Refactor services to use a provider model for easy extension.
+- [x] **Provider Abstraction:** Refactor services to use a provider model for easy extension. (STT and TTS services refactored to use provider pattern)
 - [x] **Configuration Struct:** Replace `#define` macros with a `PicoVisionConfig` struct for runtime configuration.
 - [x] **Improved Error Handling:** Return meaningful error codes/objects instead of printing to Serial.
 - [x] **Code Comments:** Add Doxygen-style comments to all public headers.

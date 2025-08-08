@@ -1,5 +1,6 @@
 #include "PicoVisionSDK.h"
 #include "vision/OllamaProvider.h"
+#include "vision/OpenRouterProvider.h"
 
 PicoVisionSDK::PicoVisionSDK() : 
     networkManager(),
@@ -31,10 +32,12 @@ bool PicoVisionSDK::begin(const PicoVisionConfig& config) {
     }
 
     // STT Provider
-    sttService.setProvider(std::make_unique<WhisperProvider>());
+    sttService.setProvider(std::make_unique<OpenRouterSTTProvider>());
+    Serial.println("Using OpenRouter for STT Service.");
     
     // TTS Provider
     ttsService.setProvider(std::make_unique<OpenAITTSProvider>());
+    Serial.println("Using OpenAI for TTS Service.");
 
     Serial.println("PicoVision SDK Initialized.");
     return true;

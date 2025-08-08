@@ -4,20 +4,18 @@
 
 STTService::STTService(NetworkManager& nm) : networkManager(nm) {}
 
-String STTService::transcribeAudio(const uint8_t* audioData, size_t dataSize) {
-    Serial.println("Sending audio to OpenRouter for transcription...");
+void STTService::setProvider(std::unique_ptr<BaseSTTProvider> provider) {
+    sttProvider = std::move(provider);
+}
 
-    String url = "https://openrouter.ai/api/v1/audio/transcriptions";
-    String response = networkManager.postMultipart(url, OPENROUTER_API_KEY, audioData, dataSize, OPENROUTER_STT_MODEL);
-
-    JsonDocument doc;
-    DeserializationError error = deserializeJson(doc, response);
-
-    if (error) {
-        Serial.print("deserializeJson() failed: ");
-        Serial.println(error.c_str());
-        return "Error parsing response";
+String STTService::transcribe(const ProviderConfig& config, AudioBuffer& audioBuffer) {
+    if (!sttProvider) {
+        Serial.println("ERROR: STT provider not set!");
+        return "";
     }
-
-    return doc["text"].as<String>();
+    if (!audioBuffer.data || audioBuffer.size == 0) {
+        Serial.println("ERROR: Invalid audio buffer passed to STTService.");
+        return "";
+    }
+    return sttProvider->transcribe(networkManager, config, audioBuffer);
 }

@@ -9,9 +9,12 @@
 #include "services/STTService.h"
 #include "services/TTSService.h"
 #include "hal/DisplayManager.h" // Include for DisplayManager
-#include "vision/OpenRouterProvider.h"
-// #include "vision/OllamaProvider.h" // Example of another provider
-#include "stt/WhisperProvider.h"
+// Concrete Vision Providers are included in .cpp where they are instantiated
+// #include "vision/OpenRouterProvider.h"
+// #include "vision/OllamaProvider.h"
+#include "stt/BaseSTTProvider.h"
+#include "stt/OpenRouterSTTProvider.h"
+#include "tts/BaseTTSProvider.h"
 #include "tts/OpenAITTSProvider.h"
 #include <memory>
 

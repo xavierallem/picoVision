@@ -1,28 +1,15 @@
 #ifndef OPENAI_TTS_PROVIDER_H
 #define OPENAI_TTS_PROVIDER_H
 
-#include <Arduino.h>
-#include "core/types.h"
-#include "services/NetworkManager.h"
-#include "hal/Audio.h"
+#include "BaseTTSProvider.h"
 
 /**
  * @class OpenAITTSProvider
- * @brief Placeholder for an OpenAI TTS provider.
- * 
- * This class would implement the logic to send text to the OpenAI TTS API
- * and receive synthesized audio.
+ * @brief Implements the TTS provider interface for OpenAI's TTS API.
  */
-class OpenAITTSProvider {
+class OpenAITTSProvider : public BaseTTSProvider {
 public:
-    // Placeholder for synthesis method
-    AudioBuffer synthesize(const String& text) {
-        // In a real implementation, this would send text to the OpenAI TTS API
-        // and return the synthesized audio data.
-        Serial.println("OpenAITTSProvider: Synthesizing speech (placeholder)...");
-        // For now, return an empty buffer
-        return {nullptr, 0};
-    }
+    AudioBuffer synthesize(NetworkManager& networkManager, const ProviderConfig& config, const String& text) override;
 };
 
 #endif // OPENAI_TTS_PROVIDER_H
