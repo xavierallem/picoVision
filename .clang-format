@@ -1,0 +1,33 @@
+# Based on Google's C++ style guide: https://google.github.io/styleguide/cppguide.html
+# Configuration generated with: clang-format -style=Google -dump-config > .clang-format
+
+Language: Cpp
+BasedOnStyle: Google
+IndentWidth: 4
+AccessModifierOffset: -2
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+AlignEscapedNewlines: Right
+AllowShortBlocksOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: All
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+BinPackArguments: true
+BinPackParameters: true
+ColumnLimit: 80
+ConstructorInitializerIndentWidth: 4
+IndentCaseLabels: false
+MaxEmptyLinesToKeep: 1
+NamespaceIndentation: All
+SortIncludes: true
+SpaceAfterCStyleCast: false
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeParens: ControlStatements
+SpaceInEmptyParentheses: false
+SpacesInAngles: false
+SpacesInCStyleCastParentheses: false
+SpacesInParentheses: false
+Standard: Cpp11
+TabWidth: 4
+UseTab: Never

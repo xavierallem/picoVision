@@ -1,0 +1,46 @@
+// Copy this file to Config.h and fill in your details.
+// IMPORTANT: DO NOT COMMIT Config.h to your version control.
+
+#ifndef CONFIG_H
+#define CONFIG_H
+
+// -- Wi-Fi Credentials --
+#define WIFI_SSID "YOUR_WIFI_SSID"
+#define WIFI_PASSWORD "YOUR_WIFI_PASSWORD"
+
+// --- Optional Display ---
+// Uncomment the next line to enable OLED display support
+#define PICOVISION_HAS_DISPLAY
+
+// I2C Pins for OLED Display
+#define I2C_SDA_PIN 21
+#define I2C_SCL_PIN 22
+
+// -- I2S Pins --
+// Microphone (e.g., INMP441)
+#define I2S_MIC_SCK_PIN 32
+#define I2S_MIC_WS_PIN 25
+#define I2S_MIC_SD_PIN 33
+// Speaker (e.g., MAX98357A)
+#define I2S_SPEAKER_DOUT_PIN 26
+
+// --- AI Service Configuration ---
+
+// -- API Keys --
+#define OPENROUTER_API_KEY "YOUR_OPENROUTER_API_KEY"
+#define OPENAI_API_KEY "YOUR_OPENAI_API_KEY"
+
+// -- Vision Service --
+#define VISION_PROVIDER "openrouter" // "openrouter" or "ollama"
+#define OPENROUTER_VISION_MODEL "google/gemini-pro-vision"
+#define OLLAMA_VISION_MODEL "llava:latest"
+#define OLLAMA_ENDPOINT "http://YOUR_OLLAMA_IP:11434/api/generate"
+
+// -- STT Service --
+#define OPENROUTER_STT_MODEL "openai/whisper-1"
+
+// -- TTS Service --
+#define OPENAI_TTS_MODEL "tts-1"
+#define OPENAI_TTS_VOICE "alloy"
+
+#endif // CONFIG_H
