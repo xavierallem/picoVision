@@ -173,4 +173,4 @@ Contributions are welcome! Please see the [Development Roadmap](ROADMAP.md) for 
 
 This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.
 
-Copyright 2025 Xavier Allem
+Copyright 2025 Allen Xavier Arasan
