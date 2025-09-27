@@ -2,7 +2,7 @@
 
 ![PicoVision SDK Logo](assets/pico_vision.png)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 PicoVision is a developer-friendly, open-source SDK for the ESP32-CAM, designed to power the next generation of wearable AI devices like smart glasses and AI pins. It provides a robust foundation for capturing sensor data, processing it with state-of-the-art AI models, and interacting with the user.
 
@@ -171,4 +171,6 @@ Contributions are welcome! Please see the [Development Roadmap](ROADMAP.md) for 
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.
+
+Copyright 2025 Xavier Allem
